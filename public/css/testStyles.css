@@ -1,0 +1,885 @@
+
+
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow-y: auto;
+    background-color: #1b1b1b; /* Updated screen background color */
+  }
+  
+  body::before {
+    content: "";
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(5px) brightness(50%);
+    width: 100%;
+    height: 200%;
+    position: absolute;
+    z-index: 1;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    overflow-y: auto;
+    
+  }
+  
+  
+  body::before {
+    content: "";
+    background-image: url('../assets/Background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(5px) brightness(50%); 
+    width: 100%;
+    height: 200%;
+    position: absolute;
+    z-index: -1;
+  }
+  
+  body.dark::before {
+    filter: blur(5px) brightness(25%);
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  @media screen and (min-width: 780px) {
+    /* Update styles for all children elements of the body */
+    body > * {
+      overflow-x: auto; /* Add a horizontal scrollbar */
+      white-space: nowrap; /* Prevent line breaks */
+    }
+  }
+  
+  
+  
+  
+  button {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      min-width: 0;
+  }
+  
+  
+  #container {
+    display: flex;
+    flex-wrap: wrap;
+    display: inline-block; 
+    white-space: normal; 
+    overflow-x: auto; 
+    overflow-y: hidden; 
+    max-width: 100%; 
+  }
+  
+  
+  #technicals-widget {
+    position: absolute;
+    top: 58%;
+    left: 0;
+    width: 20%;
+    height: 45%;
+    z-index: -5;
+  }
+  
+  .tradingview-widget-container {
+    position: absolute;
+    top: 0%;
+    height: 6%;
+    z-index: 5;
+  }
+  
+  .description-panel {
+    background: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    border-radius: 5px;
+    margin: 2vh 0;
+    padding: 0.5vh 0.5vw;
+    position: absolute;
+    top: 75%;
+    left: 25%;
+    width: 30%;
+    height: 20%;
+    color: white;
+    font-size: 1.5rem;
+    overflow-y: auto;
+  }
+  
+  .specifics-panel {
+    background: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    border-radius: 5px;
+    margin: 2vh 0;
+    padding: 0.5vh 0.5vw;
+    position: absolute;
+    top: 75%;
+    left: 60%;
+    width: 25%;
+    height: 20%;
+    color: white;
+    font-size: 1.5rem;
+    overflow-y: auto;
+  }
+  
+  
+  
+  .description-panel:hover {
+    background: linear-gradient(144deg,#1a7430, #72357e 50%,#a7663a);
+  }
+  
+  .specifics-panel:hover {
+    background: linear-gradient(144deg,#1a7430, #72357e 50%,#a7663a);
+    
+  }
+  
+  
+  .description-panel:hover span,
+  .specifics-panel:hover span,
+  .crypto-page-panel span  {
+    background-color: rgb(5, 6, 45);
+    display: block;
+    height: 100%;
+    transition: 300ms;
+  }
+  
+  .description-panel span,
+  .specifics-panel span,
+  .crypto-page-panel span {
+    background-color: rgb(5, 6, 45);
+    display: block;
+    height: 100%;
+    transition: 300ms;
+    overflow-y: auto;
+  }
+  
+  
+  
+  
+  .label-container{
+    position: absolute;
+    background-color: transparent;
+    width: 65%;
+    height: 10%;
+    top: 58%;
+    left: 22.5%;
+    z-index: 1;
+  }
+  
+  
+  
+  .dynamic-box-screen {
+    position: absolute;
+    top: 40%;
+    left: 55%;
+    width: 65%;
+    height: 35.5%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  
+  .bar-graph-display {
+    z-index: 1;
+  }
+  
+  
+  .button-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 65%;
+    height: 10%;
+    position: absolute;
+    top: 8%;
+    left: 22.5%;
+    z-index: 1;
+    
+  }
+  
+  .button-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 10%;
+    height: 35%;
+    position: absolute;
+    top: 20%; 
+    left: 8.5%;
+    z-index: 1;
+    
+    
+  }
+  
+  
+  
+  
+  
+  .button-page,
+  .button-pg-deactive {
+    width: 20%;
+    height: 100%;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    border: none;
+    color: #fff;
+    font-size: 1.0rem;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  
+  
+  
+  
+  .button-tab {
+    width: 100%;
+    height: 50%;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.0rem;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button-tab span,
+  .button-page span {
+    background: none;
+  }
+  
+  .button-tab:hover span,
+  .button-tab.clicked span,
+  .button-page:hover span,
+  .button-page.clicked span {
+    background-color: rgb(5, 6, 45);
+    padding: 16px 24px;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    transition: 300ms;
+    box-sizing: border-box;
+  }
+  
+  
+  .button-tab.clicked,
+  .button-page.clicked {
+    background-image: linear-gradient(144deg,#1b7031, #72357e 50%,#a7663a);
+  
+  }
+  
+  
+  
+  .button-tab:hover,
+  .button-page:hover {
+    background-image: linear-gradient(144deg,#1a7430, #72357e 50%,#a7663a);
+  }
+  
+  
+  #label-button span{
+    background-color: none;
+  }
+  
+  #label-button:hover span,
+  #label-button.clicked span {
+    background-color: rgb(5, 6, 45);
+    padding: 24px 36px;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    transition: 300ms;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  #label-button:hover,
+  #label-button.clicked{
+    background-image: linear-gradient(144deg,#1a7430, #72357e 50%,#a7663a);
+    cursor: pointer;
+     
+  }
+  
+  #label-button{
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+     cursor: pointer;
+     color: #fff;
+     
+  }
+  
+  
+  #yahooFin, #openInsider, #maxPain {
+    padding-bottom: 3%;
+  }
+  
+  
+  .chevron-btn {
+    background-color: transparent;
+    border: none;
+    color: #ffffff; 
+    display: inline-block;
+    font-size: 2.5vw;
+    font-weight: bold;
+    margin: 0;
+    padding: 2vh 4vw;
+    position: absolute;
+    top: 69%;
+    left: 20%;
+  }
+  
+  /* Define media queries for smaller screens */
+  @media screen and (max-width: 768px) {
+    .chevron-btn {
+      font-size: 4vw;
+      padding: 4vh 8vw;
+    }
+    
+    .chevron {
+      height: 3vh;
+      left: 3vw;
+      top: 1vh;
+      width: 2vw;
+    }
+  
+    .sources-container{
+      font-size: 6vw;
+      color: #fff;
+    }
+  }
+  
+  .chevron {
+    border-style: solid;
+    border-width: 0.25em 0.25em 0 0;
+    content: '';
+    display: inline-block;
+    height: 1.25vh;
+    left: 1.5vw;
+    position: relative;
+    top: 0.6vh;
+    transform: rotate(-45deg);
+    vertical-align: middle;
+    width: 1.25vw;
+  }
+  
+  
+  
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .sources-container a {
+    background:
+      linear-gradient(
+        to right,
+        rgba(100, 200, 200, 1),
+        rgba(100, 200, 200, 1)
+      ),
+      linear-gradient(
+        to right,
+        rgba(255, 0, 0, 1),
+        rgba(255, 0, 180, 1),
+        rgba(0, 100, 200, 1)
+    );
+    background-size: 100% 3px, 0 3px;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 400ms;
+  }
+  
+  .sources-container a:hover {
+    background-size: 0 3px, 100% 3px;
+  }
+  
+  
+  #toggleButton{
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    color: #fff;
+  }
+  
+  
+  #scrollButton{
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    color: #fff;
+  }
+  
+  
+  #scrollButton.dark-mode{
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(144deg,#1a7430, #72357e 50%,#a7663a);
+    color: #fff;
+  }
+  
+  #scroller {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 5%;
+    height: 5%;
+    position: absolute;
+    top: 9%; 
+    left: 12%;
+    z-index: 7;
+  }
+  
+  
+  
+  #toggleButton.dark-mode{
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(144deg,#1a7430, #72357e 50%,#a7663a);
+    color: #fff;
+  }
+  
+  
+  #darkLightMode {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 5%;
+    height: 5%;
+    position: absolute;
+    top: 9%; 
+    left: 5%;
+    z-index: 7;
+  }
+  
+  .sources-container {
+    width: 20%;
+    height: 15%;
+    top: 65%;
+    left: 5%;
+    z-index: 1;
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 2.5vw;
+    color: #fff;
+  }
+  
+  /* Add media query for smaller screens */
+  @media (max-width: 768px) {
+    .sources-container {
+      top: 75%;
+      font-size: 4vw;
+    }
+  }
+  
+  
+  
+  /* Add Dark Mode Features */
+  
+  .button-page.dark-mode{
+    width: 20%;
+    height: 100%;
+    background-image: linear-gradient(144deg,#1a7430, #72357e 50%,#a7663a);
+    border: none;
+    color: #fff;
+    font-size: 1.0rem;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  
+  
+  
+  
+  .button-tab.dark-mode {
+    width: 100%;
+    height: 50%;
+    /*background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);*/
+    background-image: linear-gradient(144deg,#1a7430, #72357e 50%,#a7663a);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.0rem;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button-tab.dark-mode span,
+  .button-page.dark-mode span {
+    background-color: rgb(5, 6, 45);
+    padding: 16px 24px;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    transition: 300ms;
+    box-sizing: border-box;
+  }
+  
+  .button-tab.dark-mode:hover span,
+  .button-tab.clicked.dark-mode span,
+  .button-page.dark-mode:hover span,
+  .button-page.clicked.dark-mode span {
+    background: none;
+  }
+  
+  
+  .button-tab.clicked.dark-mode,
+  .button-page.clicked.dark-mode {
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  
+  }
+  
+  
+  
+  .button-tab.dark-mode:hover,
+  .button-page.dark-mode:hover {
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  }
+  
+  
+  #label-button.dark-mode span{
+    background-color: rgb(5, 6, 45);
+    padding: 24px 36px;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    transition: 300ms;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #label-button.dark-mode:hover span,
+  #label-button.clicked.dark-mode span {
+   background: none;
+  }
+  
+  
+  #label-button.dark-mode:hover,
+  #label-button.clicked.dark-mode{
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    cursor: pointer;
+     
+  }
+  
+  #label-button.dark-mode{
+    background-image: linear-gradient(144deg,#1a7430, #72357e 50%,#a7663a);
+     cursor: pointer;
+     color: #fff;
+     
+  }
+  
+  
+  
+  
+  
+  
+  .description-panel.dark-mode {
+    background: linear-gradient(144deg,#1a7430, #72357e 50%,#a7663a);
+    border-radius: 5px;
+    margin: 2vh 0;
+    padding: 0.5vh 0.5vw;
+    position: absolute;
+    top: 75%;
+    left: 25%;
+    width: 30%;
+    height: 20%;
+    color: white;
+    font-size: 1.5rem;
+    overflow-y: auto;
+  }
+  
+  .specifics-panel.dark-mode {
+    background: linear-gradient(144deg,#1a7430, #72357e 50%,#a7663a);
+    border-radius: 5px;
+    margin: 2vh 0;
+    padding: 0.5vh 0.5vw;
+    position: absolute;
+    top: 75%;
+    left: 60%;
+    width: 25%;
+    height: 20%;
+    color: white;
+    font-size: 1.5rem;
+    overflow-y: auto;
+  }
+  
+  
+  
+  
+  .crypto-page-panel {
+    background: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
+    border-radius: 5px;
+    margin: 2vh 0;
+    padding: 0.5vh 0.5vw;
+    position: absolute;
+    top: 65%;
+    left: 10%;
+    width: 35%;
+    height: 26%;
+    color: white;
+    font-size: 1.5rem;
+    overflow-y: auto;
+    white-space: normal; /* Ensure text wraps within the container */
+    word-wrap: break-word; /* Break long words to wrap within the container */
+  }
+  
+  .crypto-page-panel.dark-mode {
+    background: linear-gradient(144deg,#1a7430, #72357e 50%,#a7663a);
+    border-radius: 5px;
+    margin: 2vh 0;
+    padding: 0.5vh 0.5vw;
+    position: absolute;
+    top: 65%;
+    left: 10%;
+    width: 35%;
+    height: 26%;
+    color: white;
+    font-size: 1.5rem;
+    overflow-y: auto;
+    white-space: normal; /* Ensure text wraps within the container */
+    word-wrap: break-word; /* Break long words to wrap within the container */
+  }
+  
+  
+  
+  .description-panel.dark-mode:hover {
+    background: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  }
+  
+  .specifics-panel.dark-mode:hover {
+    background: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    
+  }
+  
+  
+  .description-panel.dark-mode:hover span,
+  .specifics-panel.dark-mode:hover span {
+    background-color: rgb(5, 6, 45);
+    display: block;
+    height: 100%;
+    transition: 300ms;
+  }
+  
+  .description-panel.dark-mode span,
+  .specifics-panel.dark-mode span {
+    background-color: rgb(5, 6, 45);
+    display: block;
+    height: 100%;
+    transition: 300ms;
+    overflow-y: auto;
+  }
+  
+  
+  #lower-scroll-section {
+    position: relative;
+    color: white;
+    padding-left: 5%;
+    padding-right: 5%;
+    top: 100%;
+    height: 100vh; /* Set the height to 200% of the viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  thead {
+    background-color: #f2f2f2;
+  }
+  
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Specific styles for currentCryptos table */
+  .currentCryptos {
+    width: 85%; /* Reduce the width to 85% */
+    margin-bottom: 20px;
+    table-layout: fixed; /* Ensure the table does not exceed its width */
+  }
+  
+  .currentCryptos th, .currentCryptos td {
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis to overflowing text */
+  }
+  
+  .currentCryptos th {
+    background: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  }
+  
+  .currentCryptos tr:hover {
+    background: linear-gradient(144deg,#1a7430, #72357e );
+  }
+  
+  
+  .currentCryptos.dark-mode th {
+    background: linear-gradient(144deg,#1a7430, #72357e 50%,#a7663a);
+  }
+  
+  .currentCryptos.dark-mode tr:hover {
+    background: linear-gradient(144deg,#AF40FF, #5B42F3);
+  }
+  
+  /* Flex container for yesterdayCryptos and links */
+  .yesterday-section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 40px; /* Add space above the section */
+  }
+  
+  .links-container {
+    width: 35%; /* Adjust width for the links container */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .yesterdayCryptos-container {
+    width: 55%; /* Adjust width for the table container */
+  }
+  
+  .yesterdayCryptos-container h2 {
+    text-align: center;
+    margin-bottom: 20px; /* Add space below the heading */
+  }
+  
+  .yesterdayCryptos th {
+    background: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  }
+  
+  .yesterdayCryptos tr:hover {
+    background: linear-gradient(144deg,#1a7430, #72357e);
+  }
+  
+  
+  .yesterdayCryptos.dark-mode th {
+    background: linear-gradient(144deg,#1a7430, #72357e 50%,#a7663a);
+  }
+  
+  .yesterdayCryptos.dark-mode tr:hover {
+    background: linear-gradient(144deg,#AF40FF, #5B42F3);
+  }
+  
+  .yesterdayCryptos {
+    width: 100%; /* Full width of its container */
+  }
+  
+  
+  
+  
+  
+  
+  .crypto-page-explainer .underline {
+    text-decoration: underline;
+  }
+  
+  
+  
+  .sniffer-container {
+    width: 20%;
+    height: 15%;
+    top: 70%;
+    left: 60%;
+    z-index: 1;
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 2.5vw;
+    color: #fff;
+  }
+  
+  #solsniffer, #tokensniffer  {
+    padding-bottom: 3%;
+  }
+  
+  .sniffer-container a {
+    background:
+      linear-gradient(
+        to right,
+        rgba(100, 200, 200, 1),
+        rgba(100, 200, 200, 1)
+      ),
+      linear-gradient(
+        to right,
+        rgba(255, 0, 0, 1),
+        rgba(255, 0, 180, 1),
+        rgba(0, 100, 200, 1)
+    );
+    background-size: 100% 3px, 0 3px;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 400ms;
+  }
+  
+  .sniffer-container a:hover {
+    background-size: 0 3px, 100% 3px;
+  }

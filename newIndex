@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alpha version-new features soon</title>
+  <link rel="stylesheet" href="/css/styles.css"> 
+</head>
+<body>
+  <script type="module"  src = "/js/horizontalBarGraph.js"> </script>
+  <script type ="module" src = "/js/barGraphManager.js"></script>
+  <script type="module"  src = "/js/buttonManager.js"></script>
+  <script type="module"  src = "/js/generateLabels.js"></script>
+  <script type="module"  src = "/js/buttonWrapper.js"></script>
+  <div class="button-stack">
+    <button id = "macro" class = "button-tab responsive-btn">Macro</button>
+    <button id = "micro" class = "button-tab responsive-btn">Micro</button>
+  </div>  
+  <div class="button-container">
+      <button id = "bonds" class = "button-page responsive-btn" >Bonds</button>
+      <button id = "sectors" class = "button-page responsive-btn" >Sectors</button>
+      <button id = "insiders" class = "button-page responsive-btn" >Insiders</button>
+      <button id = "options" class = "button-page responsive-btn" >Options</button>
+      <button id = "ratios" class = "button-page responsive-btn" >Options</button>
+      <button id = "averages" class = "button-page responsive-btn" >Options</button>
+      <button id = "ichimoku" class = "button-page responsive-btn" >Options</button>
+      <button id = "news-deactivated" class = "button-pg-deactive responsive-btn" >News</button>
+      <button id = "social-media-deactivated" class = "button-pg-deactive responsive-btn" >Twitter</button>
+    </div> 
+  <div class="dynamic-box-screen">
+    <div class = "bar-graph-display"> </div>
+  </div>
+  <div class = "label-container"></div>
+  <button class="chevron-btn">What is this?<span class="chevron"></span></button>
+  <div class = "description-panel"></div> 
+  <div class = "specifics-panel">
+    Make a bar graph selection and I will change to provide context 
+  </div> 
+  <div>
+    <div class = "web-scraper-love-letter">
+      <div id="global-data" data-global-variable="<%= JSON.stringify(globalDataVariable) %>"></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dive Into It</title>
+  <link rel="stylesheet" href="/css/styles.css"> 
+</head>
+<body>
+  <div id="scroll-widget"></div>
+  <!-- TradingView Widget BEGIN -->
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/" rel="noopener" target="_blank"><span class="blue-text">Markets today</span></a> by TradingView</div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async> 
+      {
+        "symbols": [
+          {"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"},
+          {"description": "Nasdaq", "proName": "NASDAQ:QQQ"},
+          {"description": "Russel 2000", "proName": "AMEX:IWM"},
+          {"description": "Bitcoin", "proName": "BITSTAMP:BTCUSD"},
+          {"description": "US Oil", "proName": "TVC:USOIL"},
+          {"description": "Gold", "proName": "TVC:GOLD"},
+          {"description": "Semi Conductors", "proName": "NASDAQ:SOXX"},
+          {"description": "Apple", "proName": "NASDAQ:AAPL"},
+          {"description": "Tesla", "proName": "NASDAQ:TSLA"},
+          {"description": "Nvidia", "proName": "NASDAQ:NVDA"},
+          {"description": "Amazon", "proName": "NASDAQ:AMZN"},
+          {"description": "Dow Jones", "proName": "BLACKBULL:US30"},
+          {"description": "US Dollar", "proName": "FX:USDOLLAR"}
+        ],
+        "showSymbolLogo": true,
+        "colorTheme": "dark",
+        "isTransparent": false,
+        "displayMode": "adaptive",
+        "locale": "en"
+      }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+
+  <div id = "scroller">
+    <button id="scrollButton">Crypto</button>
+  </div>
+
+
+  <div id="container">
+    <script type="module" src="/js/utils.js"></script>
+    <script type="module" src="/js/horizontalBarGraph.js"></script>
+    <script type="module" src="/js/barGraphManager.js"></script>
+    <script type="module" src="/js/buttonManager.js"></script>
+    <script type="module" src="/js/generateLabels.js"></script>
+    <script type="module" src="/js/buttonWrapper.js"></script>
+    
+    <div class="button-stack">
+      <button id="week" class="button-tab responsive-btn"><span class="text">Week</span></button>
+      <button id="month" class="button-tab responsive-btn"><span class="text">Month</span></button>
+      <button id="quarter" class="button-tab responsive-btn"><span class="text">Quarter</span></button>
+    </div>  
+    
+    <div class="button-container">
+      <button id="bonds" class="button-page responsive-btn"><span class="text">Bonds</span></button>
+      <button id="sectors" class="button-page responsive-btn"><span class="text">Sectors</span></button>
+      <button id="insiders" class="button-page responsive-btn"><span class="text">Insiders</span></button>
+      <button id="options" class="button-page responsive-btn"><span class="text">Options</span></button>
+      <button id="ratios" class="button-page responsive-btn"><span class="text">Ratios</span></button>
+    </div> 
+
+    <div class="dynamic-box-screen">
+      <div class="bar-graph-display"></div>
+    </div>
+    
+    <div class="label-container"></div>
+    
+    
+    <div class="panel description-panel">
+      <span class="text">
+        This is an aggregation web tool. Data is pulled in through the Yahoo Finance API and a Python web scraping application. 
+        Below you will find 5 out of the 100 newest listings on coinmarketcap, filtered by rising volume and social presence.
+        Data is processed and loaded daily. Select a data set and perspective and this details page will be updated. 
+        
+        
+      </span>
+    </div> 
+    
+    <div class="panel specifics-panel">
+      <span class="text">
+        Make a bar graph selection and I will change to provide context 
+      </span>
+    </div> 
+
+    <div class="web-scraper-love-letter">
+      <div id="global-data" data-global-variable="<%= JSON.stringify(globalDataVariable) %>"></div>
+    </div>
+  </div>
+  <!-- New Section for Crypto Data -->
+  <div id="lower-scroll-section">
+    <div id="crypto-data" data-crypto-variable="<%= JSON.stringify(cryptoDataVariable) %>"></div>
+    <div id="crypto-yesterday-data" data-crypto-yesterday-variable="<%= JSON.stringify(cryptoYesterdayDataVariable) %>"></div>
+    <h2>New Listing Scanner</h2>
+
+        <script src="/js/cryptoTable.js"></script>
+
+        <table class="currentCryptos">
+            <thead>
+                <tr>
+                    <th>Token</th>
+                    <th>CMC Link</th>
+                    <th>Market Cap</th>
+                    <th>Volume 24h</th>
+                    <th>Volume Change</th>
+                    <th>24h Price </th>
+                    <th>All Price </th>
+                    <th>30d Followers</th>
+                    <th>30d Tweets</th>
+                    <th>Chain</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody id="crypto-table-body">
+                <!-- Rows will be populated by JavaScript -->
+            </tbody>
+        </table>
+          <h2 class="Yesterday Heading"> Yesterday's Cryptos</h2>
+            <div class="crypto-box yesterdayCryptos-container" id="crypto-box-1">
+                <table class="yesterdayCryptos">
+                    <thead>
+                        <tr>
+                            <th>Token</th>
+                            <th>CMC Link</th>
+                            <th>24h Price Change</th>
+                        </tr>
+                    </thead>
+                    <tbody id="crypto-yesterday-table-body">
+                        <!-- Rows will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="link-container">
+              <a href="http://openinsider.com/"><img src="assets/Open-Insider.JPG" alt="Link 1"></a>
+              <a href="https://finance.yahoo.com/"><img src="assets/Yahoo-Finance.JPG" alt="Link 2"></a>
+              <a href="https://www.stockninja.io/"><img src="assets/Stock-Ninja.JPG" alt="Link 3"></a>
+              <a href="https://tokensniffer.com/"><img src="assets/Token-Sniffer.JPG" alt="Link 4"></a>
+              <a href="https://solsniffer.com/"><img src="assets/Sol-Sniffer.JPG" alt="Link 5"></a>
+            </div>
+  </div>
+</body>
+</html>

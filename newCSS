@@ -1,0 +1,227 @@
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  overflow: hidden; 
+  cursor: pointer;
+}
+
+
+body::before {
+  content: "";
+  background-image: url('../assets/Background.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(5px) brightness(45%); 
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+
+
+
+
+
+.description-panel {
+  background-color: transparent;
+  border: 1px solid #cccccc;
+  margin: 2vh 0;
+  padding: 2vh 4vw;
+  position: absolute;
+  top: 75%;
+  left: 20%;
+  width: 30vw; 
+  height: 8vw;
+  color: white;
+  font-size: 1.0rem;
+  overflow-y: auto;
+}
+
+
+.specifics-panel {
+  background-color: transparent;
+  border: 1px solid #cccccc;
+  margin: 2vh 0;
+  padding: 2vh 4vw;
+  position: absolute;
+  top: 75%;
+  left: 60%;
+  width: 25vw; 
+  height: 8vw;
+  color: white;
+  font-size: 1.0rem;
+  overflow-y: auto;
+  
+}
+
+
+
+
+.label-container{
+  position: absolute;
+  background-color: transparent;
+  width: 65%;
+  height: 10%;
+  top: 58%;
+  left: 22.5%;
+  z-index: 1;
+}
+
+
+
+.dynamic-box-screen {
+  position: absolute;
+  top: 40%;
+  left: 55%;
+  width: 65%;
+  height: 35.5%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.bar-graph-display {
+  z-index: 1;
+}
+
+
+
+
+.button-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 65%;
+  height: 10%;
+  position: absolute;
+  top: 10%;
+  left: 22.5%; /* Adjust this value to set the left margin of the top buttons */
+  z-index: 1;
+  
+}
+
+.button-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 10%;
+  height: 20%;
+  position: absolute;
+  top: 20%; /* Adjust this value to set the top margin of the left buttons */
+  left: 8.5%;
+  z-index: 1;
+  
+  
+}
+
+.button-page,
+.button-pg-deactive {
+  width: 11.11%;
+  height: 100%;
+  background-color: #33cf79;;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 1.0rem;
+   cursor: pointer;
+  padding: 10px 20px;
+  margin: 5px; 
+  border-radius: 7%;
+}
+
+
+
+
+.button-tab {
+  width: 100%;
+  height: 50%;
+  background-color: #33cf79;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.0rem;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 7%;
+}
+
+.button-tab.clicked,
+.button-page.clicked {
+  background-color: #8d3bb6;
+  background-color: #8d3bb6;
+
+}
+
+
+.button-tab:hover,
+.button-page:hover {
+  background-color: #8d3bb6;
+}
+
+
+
+#label-button:hover{
+  background-color: #c4e437;
+   cursor: pointer;
+   
+}
+
+
+
+.chevron-btn {
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer; 
+  display: inline-block;
+  font-size: 2.5vw;
+  font-weight: bold;
+  margin: 0;
+  padding: 2vh 4vw;
+  position: absolute;
+  top: 69%;
+  left: 18%;
+}
+
+
+.chevron {
+  border-style: solid;
+  border-width: 0.25em 0.25em 0 0;
+  content: '';
+  display: inline-block;
+  height: 1.25vh;
+  left: 1.5vw;
+  position: relative;
+  top: 0.6vh;
+  transform: rotate(-45deg);
+  vertical-align: middle;
+  width: 1.25vw;
+}
+
+
+
+
+#news-deactivated,
+#news-deactivated:hover,
+#social-media-deactivated,
+#social-media-deactivated:hover
+{
+  background-color: #7a7a80;
+}
+
+.button-page-deactive {
+  width: 16.66%;
+  height: 100%;
+  background-color: #5a5a5a;;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 1.0rem;
+  cursor: pointer; 
+}
+

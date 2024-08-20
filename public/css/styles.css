@@ -1,0 +1,392 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  overflow-y: auto;
+  
+}
+
+
+body::before {
+  content: "";
+  background-image: url('../assets/temp-background.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(5px) brightness(50%); 
+  width: 100%;
+  height: 200%;
+  position: absolute;
+  z-index: -1;
+}
+
+
+@media screen and (min-width: 780px) {
+  body > * {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+
+
+
+
+button{
+  padding: 25px 30px;
+  background-color: #050801;
+  color: #03e9f4;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  letter-spacing: 4px;
+  overflow: hidden;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+button:hover{
+    background: #07d2dd;
+    color: #050801;
+    box-shadow: 0 0 5px #07d2dd,
+              0 0 25px #07d2dd,
+              0 0 50px #07d2dd,
+              0 0 150px #07d2dd;
+}
+
+
+button.clicked{
+  background: #09bac4;
+  color: #050801;
+  box-shadow: 0 0 10px #09bac4,
+              0 0 20px #09bac4;
+}
+
+
+
+
+
+#container {
+  display: flex;
+  flex-wrap: wrap;
+  display: inline-block;
+  white-space: normal;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+
+#technicals-widget {
+  position: absolute;
+  top: 58%;
+  left: 0;
+  width: 20%;
+  height: 45%;
+  z-index: -5;
+}
+
+.tradingview-widget-container {
+  position: absolute;
+  top: 0%;
+  height: 6%;
+  z-index: 5;
+}
+
+.description-panel,
+.specifics-panel {
+  border: 2px solid rgb(0, 68, 255); /* Blue border */
+  border-radius: 5px;
+  margin: 2vh 0;
+  padding: 0.5vh 0.5vw;
+  position: absolute;
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+  overflow-y: auto;
+}
+
+.description-panel {
+  top: 75%;
+  left: 25%;
+  width: 30%;
+  height: 20%;
+}
+
+.specifics-panel {
+  top: 75%;
+  left: 60%;
+  width: 25%;
+  height: 20%;
+}
+
+.description-panel:hover,
+.specifics-panel:hover {
+  background-color: #1b1b1b;
+}
+
+.label-container {
+  position: absolute;
+  background-color: transparent;
+  width: 65%;
+  height: 10%;
+  top: 58%;
+  left: 22.5%;
+  z-index: 1;
+}
+
+.dynamic-box-screen {
+  position: absolute;
+  top: 40%;
+  left: 55%;
+  width: 65%;
+  height: 35.5%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.bar-graph-display {
+  z-index: 1;
+}
+
+.button-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 65%;
+  height: 10%;
+  position: absolute;
+  top: 8%;
+  left: 22.5%;
+  z-index: 1;
+}
+
+.button-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 10%;
+  height: 35%;
+  position: absolute;
+  top: 20%;
+  left: 8.5%;
+  z-index: 1;
+}
+
+.button-page,
+.button-pg-deactive,
+.button-tab {
+  width: 20%;
+  height: 100%;
+  background-color: rgb(0, 68, 255); /* Updated button background color */
+  border: none;
+  color: white;
+  font-size: 1.0rem;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-tab {
+  width: 100%;
+  height: 50%;
+}
+
+.button-tab span,
+.button-page span {
+  background: none;
+}
+
+#label-button {
+  background-color: rgb(0, 68, 255); /* Updated button background color */
+  cursor: pointer;
+  color: white;
+}
+
+#label-button span {
+  background-color: none;
+}
+
+#label-button:hover span,
+#label-button.clicked span {
+  background-color: rgb(0, 68, 255); /* Updated hover and clicked background color */
+  padding: 24px 36px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#label-button:hover,
+#label-button.clicked {
+  background-color: rgb(0, 68, 255); /* Updated hover and clicked background color */
+}
+
+#yahooFin, #openInsider, #maxPain {
+  padding-bottom: 3%;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+#scrollButton {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 68, 255); /* Updated button background color */
+  color: white;
+}
+
+#scroller {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 7%;
+  height: 7%;
+  position: absolute;
+  top: 9%;
+  left: 10%;
+  z-index: 7;
+}
+
+
+#scroller:hover{
+  background: #09bac4;
+  color: #050801;
+  box-shadow: 0 0 4px #09bac4,
+              0 0 16px #09bac4,
+              0 0 32px #09bac4,
+              0 0 128px #09bac4;
+}
+
+.sources-container {
+  width: 20%;
+  height: 15%;
+  top: 65%;
+  left: 5%;
+  z-index: 1;
+  font-family: 'Poppins', sans-serif;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 2.5vw;
+  color: #fff;
+}
+
+#lower-scroll-section {
+  position: relative;
+  color: white;
+  padding-left: 5%;
+  padding-right: 5%;
+  top: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+thead {
+  background-color: #f2f2f2;
+}
+
+th, td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+.currentCryptos {
+  width: 85%;
+  margin-bottom: 20px;
+  table-layout: fixed;
+}
+
+.currentCryptos th, .currentCryptos td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.currentCryptos th {
+  background-color: rgb(0, 68, 255); /* Updated table header background color */
+}
+
+.currentCryptos tr:hover {
+  background-color: rgb(0, 68, 255); /* Updated row hover background color */
+}
+
+.yesterday-section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 10%;
+}
+
+.yesterdayCryptos-container {
+  width: 55%;
+}
+
+.yesterdayCryptos-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.yesterdayCryptos th {
+  background-color: rgb(0, 68, 255); /* Updated table header background color */
+}
+
+.yesterdayCryptos tr:hover {
+  background-color: rgb(0, 68, 255); /* Updated row hover background color */
+}
+
+.yesterdayCryptos {
+  width: 100%;
+}
+
+.crypto-page-explainer .underline {
+  text-decoration: underline;
+}
+
+.link-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  bottom: 10%; /* Adjust the position from the bottom as needed */
+  margin-top: 10%;
+  padding: 10px 0;
+}
+
+.link-container a {
+  display: block;
+  margin: 0 10px; /* Add a small amount of padding between images */
+}
+
+.link-container img {
+  display: block;
+}
