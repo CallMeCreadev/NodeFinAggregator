@@ -1,0 +1,20 @@
+# Ignore all .env files
+.env
+
+# Ignore the node_modules directory
+node_modules/
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+
+# Ignore build directories
+build/
+dist/
+
+# Ignore log files
+*.log
+
+# Ignore IDE configuration files
+.vscode/
+.idea/

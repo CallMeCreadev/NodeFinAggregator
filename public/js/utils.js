@@ -351,93 +351,71 @@ class Utils {
      }
 
 
-     static getDetailsForList(percentDiff, identifiers, labels, firstValues, secondValues){
+     static getDetailsForList(percentDiff, identifiers, labels, firstValues, secondValues) {
           const result = [];
           const cardType = Utils.getCardGivenLabels(labels);
-          let newString = "An error has occured with this section";
-
+      
           for (let i = 0; i < labels.length; i++) {
-               const element = labels[i];
-               if(cardType === 'Bonds'){
-                    if(identifiers[i] === 1){
-                         newString =  this.identifiers[element] + " is currently outperforming the other Bonds types by " +  Math.abs(((100-percentDiff[i]).toFixed(2))) + "%";
-                    }
-                    else {
-                         newString =  this.identifiers[element] + " is currently underperforming the other Bond types by " +  Math.abs(((100-percentDiff[i]).toFixed(2))) + "%";
-                    }
-                    
-                }
-                else if(cardType === 'Sectors'){
-                    if(identifiers[i] === 1){
-                         newString =  this.identifiers[element] + " is currently outperforming the other sectors by " +  Math.abs(((100-percentDiff[i]).toFixed(2))) + "%";
-                    }
-                    else {
-                         newString =  this.identifiers[element] + " is currently underperforming the other sectors by " +  Math.abs(((100-percentDiff[i]).toFixed(2))) + "%";
-                    }
- 
-                }
-                else if(cardType === 'Insiders'){
-                    if(identifiers[i] === 1){
-                         newString =  this.identifiers[element] + " Purchases " + firstValues[i] + " Sales " + (firstValues[i] +secondValues[i]).toFixed(0);
-                    }
-                    else {
-                         newString =  this.identifiers[element] + " Purchases " + firstValues[i] + " Sales " + (firstValues[i] +secondValues[i]).toFixed(0);
-                    }
-                    
-                }
-               else if(element === 'price_to_max_pain'){
-                   if(identifiers[i] === 1){
-                        newString =  "The current SPY (S&P500) price is " + firstValues[i] + " which is " +  Math.abs(((100-percentDiff[i]).toFixed(2))) + "% above where the majority of contracts would expire OTM: " + (firstValues[i] +secondValues[i]).toFixed(2);
-                   }
-                   else {
-                        newString =  "The current SPY (S&P500) price is " + firstValues[i] + " which is " +  Math.abs(((100-percentDiff[i]).toFixed(2))) + "% below where the majority of contracts would expire OTM: " + (firstValues[i] +secondValues[i]).toFixed(2);
-                   }
-                   
-               }
-               else if(element === 'price_to_largest_call_OI'){
-                   if(identifiers[i] === 1){
-                        newString =  "The current SPY (S&P500) price is " + firstValues[i] + " which is " +  Math.abs(((100-percentDiff[i]).toFixed(2))) + "% above the strike price for the largest number of call options: " + (firstValues[i] +secondValues[i]).toFixed(2);
-                   }
-                   else {
-                        newString =  "The current SPY (S&P500) price is " + firstValues[i] + " which is " +  Math.abs(((100-percentDiff[i]).toFixed(2))) + "% below the strike price for the largest number of call options: " + (firstValues[i] +secondValues[i]).toFixed(2);
-                   }
-
-               }
-               else if(element === 'price_to_expected_high'){
-                   if(identifiers[i] === 1){
-                        newString =  "The current SPY (S&P500) price is " + firstValues[i] + " which is " +  Math.abs(((100-percentDiff[i]).toFixed(2))) + "% above the calculated expected high:  " + (firstValues[i] +secondValues[i]).toFixed(2);
-                   }
-                   else {
-                        newString =  "The current SPY (S&P500) price is " + firstValues[i] + " which is " +  Math.abs(((100-percentDiff[i]).toFixed(2))) + "% below the calculated expected high:  " + (firstValues[i] +secondValues[i]).toFixed(2);
-                   }
-
-               }
-               else if(element === 'price_to_expected_low'){
-                    if(identifiers[i] === 1){
-                         newString =  "The current SPY (S&P500) price is " + firstValues[i] + " which is " +  Math.abs(((100-percentDiff[i]).toFixed(2))) + "% above the calculated expected low: " + (firstValues[i] +secondValues[i]).toFixed(2);
-                    }
-                    else {
-                         newString =  "The current SPY (S&P500) price is " + firstValues[i] + " which is " +  Math.abs(((100-percentDiff[i]).toFixed(2))) + "% below the calculated expected low: " + (firstValues[i] +secondValues[i]).toFixed(2);
-                    }
- 
-                }
-               else if(cardType === 'Ratios'){
-                    if(identifiers[i] === 1){
-                         newString =  this.identifiers[element] + " is outperforming by " +  Math.abs(((100-percentDiff[i]).toFixed(2))) + "%";
-                    }
-                    else {
-                         newString =  this.identifiers[element] + " is underperforming by " +  Math.abs(((100-percentDiff[i]).toFixed(2))) + "%";
-                    }
- 
-                }
-               
-          result.push(newString);
-
+              const element = labels[i];
+              let newString = "An error has occurred with this section";
+      
+              if (cardType === 'Bonds' || cardType === 'Sectors' || cardType === 'Ratios') {
+                  newString = this.generatePerformanceString(element, identifiers[i], percentDiff[i], cardType);
+              } else if (cardType === 'Insiders') {
+                  newString = this.generateInsidersString(element, firstValues[i], secondValues[i]);
+              } else if (this.isSPYElement(element)) {
+                  newString = this.generateSPYString(element, identifiers[i], percentDiff[i], firstValues[i], secondValues[i]);
+              }
+      
+              result.push(newString);
           }
-
-
-        return result;
-    }
+      
+          return result;
+      }
+      
+      static generatePerformanceString(element, identifier, percentDiff, cardType) {
+          const performance = identifier === 1 ? "outperforming" : "underperforming";
+          const type = cardType.toLowerCase();
+          if(type === 'ratios'){
+               return `${this.identifiers[element]} is currently ${performance} by ${Math.abs((100 - percentDiff).toFixed(2))}%`;
+          }
+          return `${this.identifiers[element]} is currently ${performance} the other ${type} types by ${Math.abs((100 - percentDiff).toFixed(2))}%`;
+      }
+      
+      static generateInsidersString(element, firstValue, secondValue) {
+          return `${this.identifiers[element]} Purchases ${firstValue} Sales ${(firstValue + secondValue).toFixed(0)}`;
+      }
+      
+      static generateSPYString(element, identifier, percentDiff, firstValue, secondValue) {
+          const position = identifier === 1 ? "above" : "below";
+          const description = this.getSPYDescription(element);
+          return `The current SPY (S&P500) price is ${firstValue} which is ${Math.abs((100 - percentDiff).toFixed(2))}% ${position} ${description}: ${(firstValue + secondValue).toFixed(2)}`;
+      }
+      
+      static isSPYElement(element) {
+          return [
+              'price_to_max_pain',
+              'price_to_largest_call_OI',
+              'price_to_expected_high',
+              'price_to_expected_low'
+          ].includes(element);
+      }
+      
+      static getSPYDescription(element) {
+          switch (element) {
+              case 'price_to_max_pain':
+                  return "where the majority of contracts would expire OTM";
+              case 'price_to_largest_call_OI':
+                  return "the strike price for the largest number of call options";
+              case 'price_to_expected_high':
+                  return "the calculated expected high";
+              case 'price_to_expected_low':
+                  return "the calculated expected low";
+              default:
+                  return "an unknown metric";
+          }
+      }
+      
 
 
   
