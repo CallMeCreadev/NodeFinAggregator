@@ -2,7 +2,13 @@ const express = require('express');
 const MongoDBUpdater = require('./mongoDBUpdater');
 const mongoDBUpdater = new MongoDBUpdater();
 const app = express();
-const PORT = 3000;
+const PORT = 8080;
+
+const path = require('path');
+
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));   // <= serve /public
+
 
 async function updateData() {
   await mongoDBUpdater.updateData();

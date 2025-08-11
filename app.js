@@ -2,7 +2,7 @@ const express = require('express');
 const MongoDBUpdater = require('./mongoDBUpdater');
 const mongoDBUpdater = new MongoDBUpdater();
 const app = express();
-const PORT = 3000;
+const PORT = 8080;
 
 // Global variables to hold data
 let globalDataVariable = {};
@@ -29,7 +29,7 @@ async function updateData() {
 
 // Start the server and initial data load
 app.listen(PORT, async () => {
-  console.log(`Server listening on port ${PORT}`);
+  console.log(Server listening on port ${PORT});
   await updateData(); // Ensure initial data load
 });
 
@@ -46,3 +46,4 @@ setInterval(() => {
 app.get('/', (req, res) => {
   res.render('index', { globalDataVariable, cryptoDataVariable, cryptoYesterdayDataVariable });
 });
+
