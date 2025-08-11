@@ -76,8 +76,7 @@
     <div class="panel description-panel">
       <span class="text">
         This is an aggregation web tool. Data is pulled in through the Yahoo Finance API and a Python web scraping application. 
-        Below you will find 5 out of the 100 newest listings on coinmarketcap, filtered by rising volume and social presence.
-        Data is processed and loaded daily. Select a data set and perspective and this details page will be updated. 
+        Select a data set and perspective and this details page will be updated. 
         
         
       </span>
@@ -93,57 +92,22 @@
       <div id="global-data" data-global-variable="<%= JSON.stringify(globalDataVariable) %>"></div>
     </div>
   </div>
-  <!-- New Section for Crypto Data -->
-  <div id="lower-scroll-section">
-    <div id="crypto-data" data-crypto-variable="<%= JSON.stringify(cryptoDataVariable) %>"></div>
-    <div id="crypto-yesterday-data" data-crypto-yesterday-variable="<%= JSON.stringify(cryptoYesterdayDataVariable) %>"></div>
-    <h2>New Listing Scanner</h2>
-
-        <script src="/js/cryptoTable.js"></script>
-
-        <table class="currentCryptos">
-            <thead>
-                <tr>
-                    <th>Token</th>
-                    <th>CMC Link</th>
-                    <th>Market Cap</th>
-                    <th>Volume 24h</th>
-                    <th>Volume Change</th>
-                    <th>24h Price </th>
-                    <th>All Price </th>
-                    <th>30d Followers</th>
-                    <th>30d Tweets</th>
-                    <th>Chain</th>
-                    <th>Address</th>
-                </tr>
-            </thead>
-            <tbody id="crypto-table-body">
-                <!-- Rows will be populated by JavaScript -->
-            </tbody>
-        </table>
-          <h2 class="Yesterday Heading"> Yesterday's Cryptos</h2>
-            <div class="crypto-box yesterdayCryptos-container" id="crypto-box-1">
-                <table class="yesterdayCryptos">
-                    <thead>
-                        <tr>
-                            <th>Token</th>
-                            <th>CMC Link</th>
-                            <th>24h Price Change</th>
-                        </tr>
-                    </thead>
-                    <tbody id="crypto-yesterday-table-body">
-                        <!-- Rows will be populated by JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="link-container">
-              <a href="http://openinsider.com/"><img src="assets/Open-Insider.JPG" alt="Link 1"></a>
-              <a href="https://finance.yahoo.com/"><img src="assets/Yahoo-Finance.JPG" alt="Link 2"></a>
-              <a href="https://www.stockninja.io/"><img src="assets/Stock-Ninja.JPG" alt="Link 3"></a>
-              <a href="https://tokensniffer.com/"><img src="assets/Token-Sniffer.JPG" alt="Link 4"></a>
-              <a href="https://solsniffer.com/"><img src="assets/Sol-Sniffer.JPG" alt="Link 5"></a>
-            </div>
+<!-- Left-side Resources column -->
+<aside class="resources">
+  <h3>Resources</h3>
+  <div class="resource-links">
+    <a href="http://openinsider.com/" target="_blank" rel="noopener">
+      <img src="assets/Open-Insider.JPG" alt="OpenInsider SEC Form 4">
+    </a>
+    <a href="https://finance.yahoo.com/" target="_blank" rel="noopener">
+      <img src="assets/Yahoo-Finance.JPG" alt="Yahoo Finance">
+    </a>
+    <a href="https://www.stockninja.io/" target="_blank" rel="noopener">
+      <img src="assets/Stock-Ninja.JPG" alt="StockNinja.io">
+    </a>
   </div>
+</aside>
+
+
 </body>
 </html>

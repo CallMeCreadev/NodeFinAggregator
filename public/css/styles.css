@@ -1,12 +1,11 @@
+/* ===== Base / Background ===== */
 body {
   margin: 0;
   height: 100vh;
   display: flex;
   position: relative;
   overflow-y: auto;
-  
 }
-
 
 body::before {
   content: "";
@@ -14,13 +13,12 @@ body::before {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  filter: blur(5px) brightness(50%); 
+  filter: blur(5px) brightness(50%);
   width: 100%;
-  height: 200%;
+  height: 100%;       /* was 200% -> prevents extra scroll */
   position: absolute;
   z-index: -1;
 }
-
 
 @media screen and (min-width: 780px) {
   body > * {
@@ -29,10 +27,7 @@ body::before {
   }
 }
 
-
-
-
-
+/* ===== Buttons ===== */
 button{
   padding: 25px 30px;
   background-color: #050801;
@@ -45,28 +40,18 @@ button{
   transition: 0.5s;
   cursor: pointer;
 }
-
 button:hover{
-    background: #07d2dd;
-    color: #050801;
-    box-shadow: 0 0 5px #07d2dd,
-              0 0 25px #07d2dd,
-              0 0 50px #07d2dd,
-              0 0 150px #07d2dd;
+  background: #07d2dd;
+  color: #050801;
+  box-shadow: 0 0 5px #07d2dd, 0 0 25px #07d2dd, 0 0 50px #07d2dd, 0 0 150px #07d2dd;
 }
-
-
 button.clicked{
   background: #09bac4;
   color: #050801;
-  box-shadow: 0 0 10px #09bac4,
-              0 0 20px #09bac4;
+  box-shadow: 0 0 10px #09bac4, 0 0 20px #09bac4;
 }
 
-
-
-
-
+/* ===== Layout anchors ===== */
 #container {
   flex-wrap: wrap;
   display: inline-block;
@@ -75,7 +60,6 @@ button.clicked{
   overflow-y: hidden;
   max-width: 100%;
 }
-
 #technicals-widget {
   position: absolute;
   top: 58%;
@@ -84,7 +68,6 @@ button.clicked{
   height: 45%;
   z-index: -5;
 }
-
 .tradingview-widget-container {
   position: absolute;
   top: 0%;
@@ -92,32 +75,30 @@ button.clicked{
   z-index: 5;
 }
 
+/* ===== Panels ===== */
 .description-panel,
 .specifics-panel {
-  border: 2px solid rgb(0, 68, 255); /* Blue border */
+  border: 2px solid rgb(0, 68, 255);
   border-radius: 5px;
   margin: 2vh 0;
   padding: 0.5vh 0.5vw;
   position: absolute;
-  color: rgb(255, 255, 255);
+  color: #fff;
   font-size: 1.5rem;
   overflow-y: auto;
 }
-
 .description-panel {
   top: 75%;
   left: 25%;
   width: 30%;
   height: 20%;
 }
-
 .specifics-panel {
   top: 75%;
   left: 60%;
   width: 25%;
   height: 20%;
 }
-
 .description-panel:hover,
 .specifics-panel:hover {
   background-color: #1b1b1b;
@@ -132,7 +113,6 @@ button.clicked{
   left: 22.5%;
   z-index: 1;
 }
-
 .dynamic-box-screen {
   position: absolute;
   top: 40%;
@@ -142,10 +122,7 @@ button.clicked{
   transform: translate(-50%, -50%);
   z-index: 1;
 }
-
-.bar-graph-display {
-  z-index: 1;
-}
+.bar-graph-display { z-index: 1; }
 
 .button-container {
   display: flex;
@@ -158,7 +135,6 @@ button.clicked{
   left: 22.5%;
   z-index: 1;
 }
-
 .button-stack {
   display: flex;
   flex-direction: column;
@@ -170,13 +146,12 @@ button.clicked{
   left: 8.5%;
   z-index: 1;
 }
-
 .button-page,
 .button-pg-deactive,
 .button-tab {
   width: 20%;
   height: 100%;
-  background-color: rgb(0, 68, 255); /* Updated button background color */
+  background-color: rgb(0, 68, 255);
   border: none;
   color: white;
   font-size: 1.0rem;
@@ -187,30 +162,18 @@ button.clicked{
   align-items: center;
   justify-content: center;
 }
-
-.button-tab {
-  width: 100%;
-  height: 50%;
-}
-
-.button-tab span,
-.button-page span {
-  background: none;
-}
+.button-tab { width: 100%; height: 50%; }
+.button-tab span, .button-page span { background: none; }
 
 #label-button {
-  background-color: rgb(0, 68, 255); /* Updated button background color */
+  background-color: rgb(0, 68, 255);
   cursor: pointer;
   color: white;
 }
-
-#label-button span {
-  background-color: none;
-}
-
+#label-button span { background-color: none; }
 #label-button:hover span,
 #label-button.clicked span {
-  background-color: rgb(0, 68, 255); /* Updated hover and clicked background color */
+  background-color: rgb(0, 68, 255);
   padding: 24px 36px;
   border-radius: 6px;
   width: 100%;
@@ -221,51 +184,59 @@ button.clicked{
   align-items: center;
   justify-content: center;
 }
+#label-button:hover, #label-button.clicked { background-color: rgb(0, 68, 255); }
 
-#label-button:hover,
-#label-button.clicked {
-  background-color: rgb(0, 68, 255); /* Updated hover and clicked background color */
-}
+#yahooFin, #openInsider, #maxPain { padding-bottom: 3%; }
+a { color: white; text-decoration: none; }
 
-#yahooFin, #openInsider, #maxPain {
-  padding-bottom: 3%;
-}
+/* Hide old scroller button (no more crypto section) */
+#scrollButton { display: none; }
+#scroller { display: none; }
 
-a {
-  color: white;
-  text-decoration: none;
-}
+/* ===== (Old) bottom section styles no longer needed ===== */
+/* You can delete #lower-scroll-section & .link-container if not used elsewhere */
 
-#scrollButton {
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(0, 68, 255); /* Updated button background color */
-  color: white;
-}
-
-#scroller {
+/* ===== NEW: Left-side Resources column ===== */
+.resources {
+  position: absolute;
+  top: 58%;        /* tweak to align under your label area */
+  left: 8.5%;      /* aligns with .button-stack */
+  width: 10%;      /* same width as .button-stack for symmetry */
+  color: #fff;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  width: 7%;
-  height: 7%;
-  position: absolute;
-  top: 9%;
-  left: 10%;
-  z-index: 7;
+  gap: 8px;
+}
+.resources h3 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.resource-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.resource-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.resource-links img {
+  max-width: 100%;
+  max-height: 48px;
+  height: auto;
+  display: block;
+  opacity: 0.95;
+  transition: transform .15s ease, opacity .15s ease;
+}
+.resource-links img:hover {
+  transform: translateY(-2px);
+  opacity: 1;
 }
 
-
-#scroller:hover{
-  background: #09bac4;
-  color: #050801;
-  box-shadow: 0 0 4px #09bac4,
-              0 0 16px #09bac4,
-              0 0 32px #09bac4,
-              0 0 128px #09bac4;
-}
-
+/* ===== Legacy table styles (safe to remove if unused elsewhere) ===== */
 .sources-container {
   width: 20%;
   height: 15%;
@@ -279,113 +250,4 @@ a {
   align-items: flex-start;
   font-size: 2.5vw;
   color: #fff;
-}
-
-#lower-scroll-section {
-  position: relative;
-  color: white;
-  padding-left: 5%;
-  padding-right: 5%;
-  top: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-thead {
-  background-color: #f2f2f2;
-}
-
-th, td {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-th {
-  background-color: #4CAF50;
-  color: white;
-}
-
-tr:hover {
-  background-color: #f1f1f1;
-}
-
-.currentCryptos {
-  width: 85%;
-  margin-bottom: 20px;
-  table-layout: fixed;
-}
-
-.currentCryptos th, .currentCryptos td {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.currentCryptos th {
-  background-color: rgb(0, 68, 255); /* Updated table header background color */
-}
-
-.currentCryptos tr:hover {
-  background-color: rgb(0, 68, 255); /* Updated row hover background color */
-}
-
-.yesterday-section {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-top: 10%;
-}
-
-.yesterdayCryptos-container {
-  width: 55%;
-}
-
-.yesterdayCryptos-container h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.yesterdayCryptos th {
-  background-color: rgb(0, 68, 255); /* Updated table header background color */
-}
-
-.yesterdayCryptos tr:hover {
-  background-color: rgb(0, 68, 255); /* Updated row hover background color */
-}
-
-.yesterdayCryptos {
-  width: 100%;
-}
-
-.crypto-page-explainer .underline {
-  text-decoration: underline;
-}
-
-.link-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  bottom: 10%; /* Adjust the position from the bottom as needed */
-  margin-top: 10%;
-  padding: 10px 0;
-}
-
-.link-container a {
-  display: block;
-  margin: 0 10px; /* Add a small amount of padding between images */
-}
-
-.link-container img {
-  display: block;
 }
